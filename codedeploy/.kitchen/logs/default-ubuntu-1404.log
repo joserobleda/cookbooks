@@ -1,0 +1,15 @@
+I, [2015-10-05T10:14:40.308374 #15310]  INFO -- default-ubuntu-1404: -----> Converging <default-ubuntu-1404>...
+I, [2015-10-05T10:14:40.309567 #15310]  INFO -- default-ubuntu-1404: Preparing files for transfer
+I, [2015-10-05T10:14:40.309653 #15310]  INFO -- default-ubuntu-1404: Preparing dna.json
+I, [2015-10-05T10:14:40.310086 #15310]  INFO -- default-ubuntu-1404: Preparing current project directory as a cookbook
+I, [2015-10-05T10:14:40.313255 #15310]  INFO -- default-ubuntu-1404: Removing non-cookbook files before transfer
+I, [2015-10-05T10:14:40.315123 #15310]  INFO -- default-ubuntu-1404: Preparing solo.rb
+I, [2015-10-05T10:14:40.403518 #15310]  INFO -- default-ubuntu-1404: -----> Chef Omnibus installation detected (install only if missing)
+I, [2015-10-05T10:14:40.418552 #15310]  INFO -- default-ubuntu-1404: Transferring files to <default-ubuntu-1404>
+I, [2015-10-05T10:14:41.856627 #15310]  INFO -- default-ubuntu-1404: Starting Chef Client, version 12.4.3
+I, [2015-10-05T10:14:43.133994 #15310]  INFO -- default-ubuntu-1404: Compiling Cookbooks...
+I, [2015-10-05T10:14:43.139214 #15310]  INFO -- default-ubuntu-1404: Converging 5 resources
+I, [2015-10-05T10:14:43.139942 #15310]  INFO -- default-ubuntu-1404: Recipe: codedeploy::agent
+I, [2015-10-05T10:14:43.140804 #15310]  INFO -- default-ubuntu-1404:   * execute[apt-get update] action nothing (skipped due to action :nothing)
+I, [2015-10-05T10:14:43.197440 #15310]  INFO -- default-ubuntu-1404:   * apt_package[ruby2.0] action install (up to date)
+I, [2015-10-05T10:14:43.762886 #15310]  INFO -- default-ubuntu-1404:   * remote_file[/tmp/kitchen/cache/codedeploy-install.sh] action create (up to date)
