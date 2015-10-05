@@ -24,8 +24,8 @@ cookbook_file "/etc/ssl/private/nginx.key" do
 end
 
 directory "/var/app/current" do
-  owner 'root'
-  group 'root'
+  owner 'www-data'
+  group 'www-data'
   mode '0755'
   recursive true
   action :create
