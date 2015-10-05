@@ -22,3 +22,11 @@ cookbook_file "/etc/ssl/private/nginx.key" do
   source 'nginx/nginx.key'
   notifies :restart, "service[nginx]", :delayed
 end
+
+directory "/var/app/current" do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  recursive true
+  action :create
+end
