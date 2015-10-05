@@ -23,7 +23,7 @@ cookbook_file "/etc/ssl/private/nginx.key" do
   notifies :restart, "service[nginx]", :delayed
 end
 
-directory "/var/app/current" do
+directory "/var/app/swap" do
   owner 'www-data'
   group 'www-data'
   mode '0755'
