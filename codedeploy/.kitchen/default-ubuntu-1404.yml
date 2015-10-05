@@ -1,6 +1,0 @@
----
-hostname: 127.0.0.1
-port: '2203'
-username: vagrant
-ssh_key: "/Users/jose/Github/cookbooks/codedeploy/.kitchen/kitchen-vagrant/kitchen-codedeploy-default-ubuntu-1404/.vagrant/machines/default/virtualbox/private_key"
-last_action: create
