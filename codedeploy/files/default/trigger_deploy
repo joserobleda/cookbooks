@@ -1,0 +1,26 @@
+#!/bin/bash
+
+DEPLOY_ID=`aws deploy list-deployments \
+--application-name SamplePhpApp \
+--deployment-group-name SamplePhpAppGroup \
+--include-only-statuses Succeeded \
+--region=eu-west-1 \
+| sed '3q;d' | awk -F'"' '{ print $2 }'`
+
+touch "/home/vagrant/${DEPLOY_ID}.log"
+touch "/home/vagrant/current_${DEPLOY_ID}.log"
+
+aws deploy get-deployment --deployment-id $DEPLOY_ID > /tmp/deploy.json
+
+BUCKET=`cat /tmp/deploy.json | grep "\"bucket\":" | awk -F'"' '{ print $4 }'`
+ZIPKEY=`cat /tmp/deploy.json | grep "\"key\":" | awk -F'"' '{ print $4 }'`
+
+rm /tmp/deploy.json
+
+LOCATION="bucket=${BUCKET},bundleType=zip,key=${ZIPKEY}"
+
+aws deploy create-deployment \
+--application-name "SamplePhpApp" \
+--deployment-group-name "SamplePhpAppGroup" \
+--s3-location $LOCATION \
+> /tmp/deployment.log
