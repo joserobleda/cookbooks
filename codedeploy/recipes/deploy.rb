@@ -7,8 +7,9 @@ cookbook_file "/tmp/trigger_deploy" do
 end
 
 app = node[:codedeploy][:app_name]
-group = node[:codedeploy][:app_group]
-command = "bash /tmp/trigger_deploy #{app} #{group}"
+group_src = node[:codedeploy][:app_group_src]
+group_target = node[:codedeploy][:app_group_target]
+command = "bash /tmp/trigger_deploy #{app} #{group_src} #{group_target}"
 
 execute "trigger deploy script" do
   command "#{command}"

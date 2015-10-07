@@ -1,13 +1,14 @@
 #!/bin/bash
 
 APPNAME=$1
-APPGROUP=$2
+APPGROUPSRC=$2
+APPGROUPTARGET=$3
 STATUS="Succeeded"
 
 # recover last the last deploy identifier
 DEPLOY_ID=`aws deploy list-deployments \
 --application-name ${APPNAME} \
---deployment-group-name ${APPGROUP} \
+--deployment-group-name ${APPGROUPSRC} \
 --include-only-statuses ${STATUS} \
 --region=eu-west-1 \
 | sed '3q;d' | awk -F'"' '{ print $2 }'`
@@ -20,4 +21,4 @@ LOCATION="bucket=${BUCKET},bundleType=zip,key=${ZIPKEY}"
 rm /tmp/deploy.json
 
 # re-deploy the same revision again
-aws deploy create-deployment --application-name $APPNAME --deployment-group-name $APPGROUP --s3-location $LOCATION
+aws deploy create-deployment --application-name $APPNAME --deployment-group-name $APPGROUPTARGET --s3-location $LOCATION
